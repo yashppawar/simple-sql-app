@@ -1,5 +1,4 @@
 import sqlite3
-from dotenv import dotenv_values
 
 from student import Student
 

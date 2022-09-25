@@ -1,4 +1,3 @@
-from student import Student
 from data import StudentDB
 import streamlit as st
 import matplotlib.pyplot as plt
