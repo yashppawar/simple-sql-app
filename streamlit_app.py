@@ -2,8 +2,17 @@ from data import StudentDB
 import streamlit as st
 import matplotlib.pyplot as plt
 
-st.write("Hello")
-home, add_student = st.tabs(["Home", "➕ Add Student"])
+st.set_page_config(
+    page_title="SQL app on Cloud",
+    page_icon=":floppy_disk:"
+)
+
+st.write("""
+# Simple SQL app on Cloud
+An SQL app to calculate total and percentageof a student in Data Base
+""")
+
+home, add_student, about = st.tabs(["Home", "➕ Add Student", "About"])
 
 db = StudentDB()
 db.create()
@@ -45,9 +54,9 @@ with home:
         with table:
             st.table(marks_data)
 
-    if st.button("Celebrate"):
-        st.balloons()
-        st.snow()
+        if total/len(marks) >= 75 and st.button("Celebrate"):
+            st.balloons()
+            st.snow()
         
 with add_student, st.form("Add Student", True):
     c1, c2 = st.columns([30, 70])
@@ -76,3 +85,6 @@ with add_student, st.form("Add Student", True):
             st.success(f"Student with ID {id_} Added Successfully")
         else:
             st.error(f"Student with ID {id_} Already Exists, try a different one")
+
+with about:
+    st.image("https://images.unsplash.com/photo-1662026911591-335639b11db6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1162&q=80", use_column_width=True)

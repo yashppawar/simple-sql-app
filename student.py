@@ -21,5 +21,5 @@ class Student(BaseModel):
 
     @property
     def name(self):
-        return f"{self.fname} {self.lname}".capitalize()
+        return f"{self.fname} {self.lname}".title()
 
